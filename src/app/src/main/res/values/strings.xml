@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">airNode</string>
+    <string name="app_version">Versión 1.0.0</string>
+
+    <string name="title_map">Mapa</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_history">Histórico</string>
+    <string name="title_signin">Iniciar sesión</string>
+    <string name="title_signup">Registro</string>
+
+    <string name="settings_icon_description">Settings hamburguer icon</string>
+    <string name="go_back_icon_description">Go back arrow icon</string>
+</resources>

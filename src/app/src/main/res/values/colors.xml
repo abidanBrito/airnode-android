@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#848CE7</color>
+    <color name="colorSecondary">#26DFCE</color>
+    <color name="colorAccent">#848CE7</color>
+
+    <color name="black">#FF000000</color>
+    <color name="dark_grey">#555555</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="inactiveIcon">#8B8B8B</color>
+    <color name="blackHeader">#555555</color>
+    <color name="grayDivider">#A5A5A5</color>
+    <color name="whiteBackground">#F8F8F8</color>
+    <color name="gas_low">#8DEF6A</color>
+    <color name="gas_medium">#F1DA5F</color>
+    <color name="gas_high">#F37272</color>
+</resources>
