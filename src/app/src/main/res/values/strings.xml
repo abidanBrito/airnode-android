@@ -8,6 +8,6 @@
     <string name="title_signin">Iniciar sesión</string>
     <string name="title_signup">Registro</string>
 
-    <string name="settings_icon_description">Settings hamburguer icon</string>
-    <string name="go_back_icon_description">Go back arrow icon</string>
+    <string name="settings_icon_description">Menu</string>
+    <string name="go_back_icon_description">Go back</string>
 </resources>

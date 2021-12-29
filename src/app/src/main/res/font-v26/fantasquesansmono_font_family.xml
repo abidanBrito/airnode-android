@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Regular -->
+    <font
+        android:font="@font/fantasquesansmono_regular"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+
+    <!-- Regular Italic -->
+    <font
+        android:font="@font/fantasquesansmono_italic"
+        android:fontStyle="italic"
+        android:fontWeight="400" />
+
+    <!-- Bold -->
+    <font
+        android:font="@font/fantasquesansmono_bold"
+        android:fontStyle="normal"
+        android:fontWeight="700" />
+
+    <!-- Bold Italic -->
+    <font
+        android:font="@font/fantasquesansmono_bold_italic"
+        android:fontStyle="italic"
+        android:fontWeight="700" />
+</font-family>

@@ -7,7 +7,7 @@
         android:height="105dp"
         android:drawable="@drawable/ic_logotype"
         android:gravity="center"
-        android:bottom="45dp"/>
+        android:bottom="45dp" />
     <item
         android:drawable="@drawable/ic_splash_branding"
         android:gravity="bottom|center"

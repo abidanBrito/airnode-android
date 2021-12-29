@@ -7,6 +7,7 @@
     <color name="black">#FF000000</color>
     <color name="dark_grey">#555555</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="almost_white">#FAFAFA</color>
 
     <color name="inactiveIcon">#8B8B8B</color>
     <color name="blackHeader">#555555</color>
