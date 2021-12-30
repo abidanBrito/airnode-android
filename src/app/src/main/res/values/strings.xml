@@ -1,13 +1,30 @@
 <resources>
+    <!-- App details -->
     <string name="app_name">airNode</string>
     <string name="app_version">Versión 1.0.0</string>
 
+    <!-- Fragment labels -->
     <string name="title_map">Mapa</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_history">Histórico</string>
     <string name="title_signin">Iniciar sesión</string>
     <string name="title_signup">Registro</string>
 
-    <string name="settings_icon_description">Menu</string>
-    <string name="go_back_icon_description">Go back</string>
+    <!-- Icon descriptions -->
+    <string name="settings_icon_description">Menú</string>
+    <string name="go_back_icon_description">Volver</string>
+    <string name="login_icon_description">Iniciar sesión</string>
+    <string name="measurement_icon_description">¿Qué medimos?</string>
+    <string name="contact_icon_description">Ponte en contacto</string>
+    <string name="faqs_icon_description">Preguntas frecuentes</string>
+    <string name="legal_terms_icon_description">Términos</string>
+    <string name="about_icon_description">Información sobre la app</string>
+
+    <!-- Settings menu destination labels -->
+    <string name="settings_login_label">Iniciar sesión</string>
+    <string name="settings_measurement_label">¿Qué medimos?</string>
+    <string name="settings_contact_label">Ponte en contacto</string>
+    <string name="settings_faqs_label">Preguntas frecuentes</string>
+    <string name="settings_legal_terms_label">Política de privacidad</string>
+    <string name="settings_about_label">Acerca de</string>
 </resources>
