@@ -24,6 +24,18 @@ class MapFragment : Fragment() {
         // Change ActionBar title
         updateActionBarTitle(R.string.title_map)
 
+        // Get map container and enable scrollbars
+        val mapContainer = binding.mapContainer
+        mapContainer.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+
+        // Make background transparent
+        mapContainer.setBackgroundColor(0)
+
+        // Load map view and enable Javascript
+        val webSettings: WebSettings = mapContainer.settings
+        true.also { webSettings.javaScriptEnabled = it }
+        mapContainer.loadUrl("https://airnode.web.app/ux/mapa.html")
+
         return binding.root
     }
 
