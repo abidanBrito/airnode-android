@@ -10,6 +10,12 @@ import com.abidev.airnode.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    private val navController by lazy {
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        navHostFragment.navController
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,5 +48,16 @@ class MainActivity : AppCompatActivity() {
 
     fun changeAppBarTitle(title: String) {
         binding.appbarLayout.toolbarTitle.text = title
+    }
+
+    fun toggleActionBarAndNavBar() {
+        if (supportActionBar?.isShowing == true) {
+            supportActionBar!!.hide()
+            binding.navView.visibility = View.GONE
+            return
+        }
+
+        supportActionBar!!.show()
+        binding.navView.visibility = View.VISIBLE
     }
 }

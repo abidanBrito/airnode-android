@@ -4,16 +4,15 @@
     <color name="colorSecondary">#26DFCE</color>
     <color name="colorAccent">#848CE7</color>
 
-    <color name="black">#FF000000</color>
-    <color name="dark_grey">#555555</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="almost_white">#FAFAFA</color>
-
-    <color name="inactiveIcon">#8B8B8B</color>
-    <color name="blackHeader">#555555</color>
+    <color name="black">#000000</color>
+    <color name="darkGrey">#555555</color>
+    <color name="translucentBlack">#99000000</color>
+    <color name="inactiveGrey">#8B8B8B</color>
     <color name="grayDivider">#A5A5A5</color>
-    <color name="whiteBackground">#F8F8F8</color>
-    <color name="gas_low">#8DEF6A</color>
-    <color name="gas_medium">#F1DA5F</color>
-    <color name="gas_high">#F37272</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="almostWhite">#FAFAFA</color>
+
+    <color name="gasLow">#8DEF6A</color>
+    <color name="gasMedium">#F1DA5F</color>
+    <color name="gasHigh">#F37272</color>
 </resources>

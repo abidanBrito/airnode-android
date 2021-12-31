@@ -13,6 +13,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="-30dp"/>
+
+    <FrameLayout
+        android:id="@+id/map_fullscreen"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/round_floating_button"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_full_screen"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"
+            app:tint="@color/inactiveGrey"
+            android:contentDescription="@string/map_fullscreen_icon_description"/>
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,7 +49,7 @@
             android:letterSpacing=".03"
             android:text="@string/settings_login_label"
             android:textAlignment="center"
-            android:textColor="@color/blackHeader"
+            android:textColor="@color/darkGrey"
             android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
@@ -82,7 +82,7 @@
             android:letterSpacing=".03"
             android:text="@string/settings_measurement_label"
             android:textAlignment="center"
-            android:textColor="@color/blackHeader"
+            android:textColor="@color/darkGrey"
             android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
@@ -115,7 +115,7 @@
             android:letterSpacing=".03"
             android:text="@string/settings_contact_label"
             android:textAlignment="center"
-            android:textColor="@color/blackHeader"
+            android:textColor="@color/darkGrey"
             android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
@@ -149,7 +149,7 @@
             android:letterSpacing=".03"
             android:text="@string/settings_faqs_label"
             android:textAlignment="center"
-            android:textColor="@color/blackHeader"
+            android:textColor="@color/darkGrey"
             android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
@@ -183,7 +183,7 @@
             android:letterSpacing=".03"
             android:text="@string/settings_legal_terms_label"
             android:textAlignment="center"
-            android:textColor="@color/blackHeader"
+            android:textColor="@color/darkGrey"
             android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
@@ -217,7 +217,7 @@
             android:letterSpacing=".03"
             android:text="@string/settings_about_label"
             android:textAlignment="center"
-            android:textColor="@color/blackHeader"
+            android:textColor="@color/darkGrey"
             android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>

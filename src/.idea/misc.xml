@@ -4,25 +4,32 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.190625" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_go_back.xml" value="0.184375" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_hamburguer_v3.xml" value="0.26614583333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_logotype.xml" value="0.26614583333333336" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_menu.xml" value="0.121875" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/logotype_dropshadow.xml" value="0.26614583333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_bottom_navigation_view.xml" value="0.26614583333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_bottom_sheet_dialog.xml" value="0.190625" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_button.xml" value="0.26614583333333336" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_divider.xml" value="0.21354166666666666" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_floating_button.xml" value="0.21354166666666666" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_toast.xml" value="0.26614583333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_toolbar.xml" value="0.26614583333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/splash_background.xml" value="0.26614583333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/font-v26/fantasquesansmono_font_family.xml" value="0.26458333333333334" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/font/fantasquesansmono_font_family.xml" value="0.26458333333333334" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/activity_main2.xml" value="0.24635416666666668" />
-        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/appbar.xml" value="0.4" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/appbar.xml" value="0.2777777777777778" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/custom_toast.xml" value="0.8" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_history.xml" value="0.25" />
-        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_map.xml" value="0.1" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_map.xml" value="0.47022332506203474" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_settings_bottom_sheet.xml" value="0.4" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17447916666666666" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/menu/menu.xml" value="0.20364583333333333" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/menu/settings_menu.xml" value="0.16" />
         <entry key="..\:/dev/airnode/app/src/main/res/drawable-v23/splash_background.xml" value="0.15520833333333334" />
         <entry key="..\:/dev/airnode/app/src/main/res/drawable-v24/ic_about.xml" value="0.15520833333333334" />
         <entry key="..\:/dev/airnode/app/src/main/res/drawable-v24/ic_contact.xml" value="0.15520833333333334" />

@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.abidev.airnode.R
 import com.abidev.airnode.databinding.FragmentDashboardBinding
-import com.abidev.airnode.updateActionBarTitle
+import com.abidev.airnode.utils.newToast
+import com.abidev.airnode.utils.updateActionBarTitle
 
 class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null
@@ -22,6 +24,10 @@ class DashboardFragment : Fragment() {
 
         // Change ActionBar title
         updateActionBarTitle(R.string.title_dashboard)
+
+        binding.root.setOnClickListener {
+            requireActivity().newToast("No hay animación :(", Toast.LENGTH_SHORT)
+        }
 
         return binding.root
     }

@@ -16,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/round_toolbar"
-            android:paddingStart="20dp"
-            android:paddingEnd="22dp"
+            android:paddingStart="22dp"
+            android:paddingEnd="26dp"
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp">
 
@@ -25,17 +25,17 @@
                 android:id="@+id/toolbarTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:letterSpacing="0.1"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_gravity="center"
-                tools:text="Title"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.1"/>
+                tools:text="Title" />
 
             <ImageButton
                 android:id="@+id/go_back_icon"

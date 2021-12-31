@@ -19,6 +19,7 @@
     <string name="faqs_icon_description">Preguntas frecuentes</string>
     <string name="legal_terms_icon_description">Términos</string>
     <string name="about_icon_description">Información sobre la app</string>
+    <string name="map_fullscreen_icon_description">Icono mapa a pantalla completa</string>
 
     <!-- Settings menu destination labels -->
     <string name="settings_login_label">Iniciar sesión</string>
