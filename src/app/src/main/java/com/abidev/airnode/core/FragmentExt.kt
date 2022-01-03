@@ -5,5 +5,5 @@ import androidx.fragment.app.Fragment
 import com.abidev.airnode.ui.views.MainActivity
 
 fun Fragment.updateActionBarTitle(@StringRes id: Int) {
-    (requireContext() as? MainActivity)?.changeAppBarTitle(getString(id))
+    (activity as? MainActivity)?.changeAppBarTitle(getString(id))
 }
