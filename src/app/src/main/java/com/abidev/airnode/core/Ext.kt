@@ -53,6 +53,14 @@ fun View.setMarginsDp(
     }
 }
 
+fun View.showView() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.hideView() {
+    this.visibility = View.GONE
+}
+
 fun TextView.setColor(@ColorRes id: Int) {
     setTextColor(context.getColor(id))
 }
