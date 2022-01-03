@@ -61,13 +61,13 @@ class MapFragment : Fragment() {
             var topMargin: Int = defaultMargin
             var bottomMargin: Int = defaultMargin
 
-            if ((requireContext() as? MainActivity)?.supportActionBar?.isShowing == false) {
+            if ((activity as? MainActivity)?.supportActionBar?.isShowing == false) {
                 topMargin = it.dpToPx(85F)
                 bottomMargin = it.dpToPx(85F)
             }
 
             // Hide ActionBar and NavBar
-            (requireContext() as? MainActivity)?.toggleActionBarAndNavBar()
+            (activity as? MainActivity)?.toggleActionBarAndNavBar()
 
             // Reset margins
             it.setMarginsDp(top = topMargin)
