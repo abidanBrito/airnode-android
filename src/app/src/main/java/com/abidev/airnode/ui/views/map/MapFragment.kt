@@ -1,5 +1,6 @@
 package com.abidev.airnode.ui.views.map
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.ColorRes
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.content.ContextCompat.getDrawable
 import androidx.fragment.app.Fragment
 import com.abidev.airnode.R
 import com.abidev.airnode.core.dpToPx
@@ -56,6 +59,9 @@ class MapFragment : Fragment() {
         mapContainer.loadUrl("https://airnode.web.app/ux/mapa.html")
 
         binding.mapFullscreen.setOnClickListener {
+            // Update icon
+            toggleFullscreenIcon()
+
             // Establish margins
             val defaultMargin = requireContext().dpToPx(30F)
             var topMargin: Int = defaultMargin
@@ -114,8 +120,22 @@ class MapFragment : Fragment() {
         return binding.root
     }
 
+    private fun toggleFullscreenIcon() {
+        binding.run {
+            if (fullscreenIcon.tag.equals("minimized")) {
+                fullscreenIcon.setImageResource(R.drawable.ic_close)
+                fullscreenIcon.tag = "maximized"
+            } else {
+                fullscreenIcon.setImageResource(R.drawable.ic_full_screen)
+                fullscreenIcon.tag = "minimized"
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+
+        // NOTE(abi): this has to be set to null to avoid memory leaks!
         _binding = null
     }
 
