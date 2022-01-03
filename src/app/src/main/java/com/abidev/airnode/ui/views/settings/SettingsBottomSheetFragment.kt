@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.NavHostFragment
 import com.abidev.airnode.R
 import com.abidev.airnode.databinding.FragmentSettingsBottomSheetBinding
+import com.abidev.airnode.ui.views.MainActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class SettingsBottomSheetFragment : BottomSheetDialogFragment() {
@@ -29,10 +31,12 @@ class SettingsBottomSheetFragment : BottomSheetDialogFragment() {
         //val navController = NavHostFragment.findNavController(this)
 
         // Event listener for login link
-//        binding.loginContainer.setOnClickListener {
+        binding.loginContainer.setOnClickListener {
 //            (activity as MainActivity).toggleInterfaceItems()
 //            navController.navigate(R.id.signin_fragment)
-//        }
+//            (activity as MainActivity?).toggleInterfaceItems()
+//            NavHostFragment.findNavController(this).navigate(R.id.nuevo_destino)
+        }
 
 
 

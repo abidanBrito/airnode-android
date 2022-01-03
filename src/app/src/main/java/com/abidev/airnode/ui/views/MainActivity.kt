@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.navOptions
 import androidx.navigation.ui.setupWithNavController
 import com.abidev.airnode.R
+import com.abidev.airnode.core.slideDownAnimation
+import com.abidev.airnode.core.slideUpAnimation
 import com.abidev.airnode.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnScrollListenerMain {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,11 +22,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Set up custom Action Bar
-        setSupportActionBar(binding.appbarLayout.toolbar)
+        setSupportActionBar(binding.customActionbar.toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         // Hide go back icon
-        binding.appbarLayout.goBackIcon.visibility = View.GONE
+        binding.customActionbar.goBackIcon.visibility = View.GONE
 
         // Get NavController reference
         val navController by lazy {
@@ -33,16 +36,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Link the Bottom Navigation View to the Navigation Controller
-         binding.navView.setupWithNavController(navController)
+        binding.navView.setupWithNavController(navController)
 
         // Settings icon listener
-        binding.appbarLayout.settingsIcon.setOnClickListener {
+        binding.customActionbar.settingsIcon.setOnClickListener {
+//            navController.navigate(R.id.settingsBottomSheetFragment, navOptions {
+//                anim {
+//                    enter =
+//                }
+//            })
             navController.navigate(R.id.settingsBottomSheetFragment)
         }
     }
 
     fun changeAppBarTitle(title: String) {
-        binding.appbarLayout.toolbarTitle.text = title
+        binding.customActionbar.toolbarTitle.text = title
     }
 
     fun toggleActionBarAndNavBar() {
@@ -55,4 +63,23 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.show()
         binding.navView.visibility = View.VISIBLE
     }
+
+    override fun hideBars(duration: Int, heightActionBar: Float, heightNavBar: Float) {
+        binding.run {
+            customActionbar.appbar.slideUpAnimation(duration, heightActionBar)
+            navView.slideDownAnimation(duration, heightNavBar)
+        }
+    }
+
+    override fun showBars(duration: Int, defaultHeight: Float) {
+        binding.run {
+            customActionbar.appbar.slideDownAnimation(duration, defaultHeight)
+            navView.slideUpAnimation(duration, defaultHeight)
+        }
+    }
+}
+
+interface OnScrollListenerMain {
+    fun hideBars(duration: Int, heightActionBar: Float, heightNavBar: Float)
+    fun showBars(duration: Int, defaultHeight: Float)
 }
