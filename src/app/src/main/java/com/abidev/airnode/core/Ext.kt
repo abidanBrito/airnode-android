@@ -1,4 +1,4 @@
-package com.abidev.airnode.utils
+package com.abidev.airnode.core
 
 import android.app.Activity
 import android.content.Context

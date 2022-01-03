@@ -1,4 +1,4 @@
-package com.abidev.airnode.ui.history
+package com.abidev.airnode.ui.views.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.abidev.airnode.R
 import com.abidev.airnode.databinding.FragmentHistoryBinding
-import com.abidev.airnode.utils.updateActionBarTitle
+import com.abidev.airnode.core.updateActionBarTitle
 
 class HistoryFragment : Fragment() {
     private var _binding: FragmentHistoryBinding? = null

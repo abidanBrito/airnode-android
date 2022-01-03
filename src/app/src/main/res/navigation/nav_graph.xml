@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.abidev.airnode.ui.map.MapFragment"
+        android:name="com.abidev.airnode.ui.views.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map"/>
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.abidev.airnode.ui.dashboard.DashboardFragment"
+        android:name="com.abidev.airnode.ui.views.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard"/>
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.abidev.airnode.ui.history.HistoryFragment"
+        android:name="com.abidev.airnode.ui.views.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history"/>
     <dialog
         android:id="@+id/settingsBottomSheetFragment"
-        android:name="com.abidev.airnode.ui.settings.SettingsBottomSheetFragment"
+        android:name="com.abidev.airnode.ui.views.settings.SettingsBottomSheetFragment"
         android:label="SettingsBottomSheetFragment" />
 
 </navigation>

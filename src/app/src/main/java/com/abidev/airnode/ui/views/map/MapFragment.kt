@@ -1,4 +1,4 @@
-package com.abidev.airnode.ui.map
+package com.abidev.airnode.ui.views.map
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,13 +10,13 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.ColorRes
 import androidx.fragment.app.Fragment
-import com.abidev.airnode.MainActivity
 import com.abidev.airnode.R
+import com.abidev.airnode.core.dpToPx
+import com.abidev.airnode.core.setColor
+import com.abidev.airnode.core.setMarginsDp
+import com.abidev.airnode.core.updateActionBarTitle
 import com.abidev.airnode.databinding.FragmentMapBinding
-import com.abidev.airnode.utils.dpToPx
-import com.abidev.airnode.utils.setColor
-import com.abidev.airnode.utils.setMarginsDp
-import com.abidev.airnode.utils.updateActionBarTitle
+import com.abidev.airnode.ui.views.MainActivity
 
 class MapFragment : Fragment() {
     private var _binding: FragmentMapBinding? = null

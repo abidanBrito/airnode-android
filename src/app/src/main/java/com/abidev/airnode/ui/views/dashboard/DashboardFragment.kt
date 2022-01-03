@@ -1,4 +1,4 @@
-package com.abidev.airnode.ui.dashboard
+package com.abidev.airnode.ui.views.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.abidev.airnode.R
 import com.abidev.airnode.databinding.FragmentDashboardBinding
-import com.abidev.airnode.utils.newToast
-import com.abidev.airnode.utils.updateActionBarTitle
+import com.abidev.airnode.core.newToast
+import com.abidev.airnode.core.updateActionBarTitle
 
 class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null

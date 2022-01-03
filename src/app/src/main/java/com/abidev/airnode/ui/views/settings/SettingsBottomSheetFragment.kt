@@ -1,4 +1,4 @@
-package com.abidev.airnode.ui.settings
+package com.abidev.airnode.ui.views.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
