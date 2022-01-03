@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment
-import com.abidev.airnode.MainActivity
 import com.abidev.airnode.R
 import com.abidev.airnode.databinding.FragmentSettingsBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -16,7 +14,7 @@ class SettingsBottomSheetFragment : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.RoundBottomSheetDialogStyle);
+        setStyle(STYLE_NORMAL, R.style.RoundBottomSheetDialogStyle)
     }
 
     override fun onCreateView(
@@ -35,6 +33,8 @@ class SettingsBottomSheetFragment : BottomSheetDialogFragment() {
 //            (activity as MainActivity).toggleInterfaceItems()
 //            navController.navigate(R.id.signin_fragment)
 //        }
+
+
 
         return binding.root
     }

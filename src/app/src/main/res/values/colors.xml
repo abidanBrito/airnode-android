@@ -6,13 +6,14 @@
 
     <color name="black">#000000</color>
     <color name="darkGrey">#555555</color>
+    <color name="translucentDarkGrey">#B3555555</color>
     <color name="translucentBlack">#99000000</color>
     <color name="inactiveGrey">#8B8B8B</color>
     <color name="grayDivider">#A5A5A5</color>
     <color name="white">#FFFFFFFF</color>
     <color name="almostWhite">#FAFAFA</color>
 
-    <color name="gasLow">#8DEF6A</color>
-    <color name="gasMedium">#F1DA5F</color>
-    <color name="gasHigh">#F37272</color>
+    <color name="gasLow">#8AF4BB</color>
+    <color name="gasMedium">#FBD471</color>
+    <color name="gasHigh">#FF818A</color>
 </resources>

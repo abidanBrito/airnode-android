@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.abidev.airnode">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:fullBackupOnly="true"
@@ -11,9 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AirNode">
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
