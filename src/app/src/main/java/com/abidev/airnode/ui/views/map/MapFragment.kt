@@ -8,7 +8,10 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.annotation.ColorRes
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.abidev.airnode.R
@@ -35,23 +38,27 @@ class MapFragment : Fragment() {
         // Change ActionBar title
         updateActionBarTitle(R.string.title_map)
 
-        // Get map container and enable scrollbars
-        val mapContainer = binding.mapContainer
-        mapContainer.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
-
-        // Make background transparent
-        mapContainer.setBackgroundColor(0)
-
-        // Get map webView and enable Javascript
-        val webSettings: WebSettings = mapContainer.settings
-        true.also { webSettings.javaScriptEnabled = it }
-
-//        mapContainer.settings.cacheMode = WebSettings.LOAD_NO_CACHE
-
         // Initialize and load map
-        setupMapWebClient()
+        initializeMap()
+        setUpMapWebClient()
         loadInterpolationMap()
 
+        // GUI listeners
+        setUpReloadButton()
+        setUpFullScreenToggle()
+        setUpGasButtons()
+
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // NOTE(abi): this has to be set to null to avoid memory leaks!
+        _binding = null
+    }
+
+    private fun setUpReloadButton() {
         binding.apply {
             btnReloadMap.setOnClickListener {
                 btnReloadMap.visibility = View.GONE
@@ -68,8 +75,25 @@ class MapFragment : Fragment() {
                 }
             }
         }
+    }
 
+    private fun initializeMap() {
+        // Get map container and enable scrollbars
+        val mapContainer = binding.mapContainer
+        mapContainer.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
 
+        // Make background transparent
+        mapContainer.setBackgroundColor(0)
+
+        // Get map webView and enable Javascript
+        val webSettings: WebSettings = mapContainer.settings
+        true.also { webSettings.javaScriptEnabled = it }
+
+        // Disable loading from cache (map is non-responsive when offline)
+        mapContainer.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+    }
+
+    private fun setUpFullScreenToggle() {
         binding.mapFullscreen.setOnClickListener {
             // Update icon
             toggleFullscreenIcon()
@@ -92,49 +116,40 @@ class MapFragment : Fragment() {
             binding.mapLegend.setMarginsDp(top = topMargin)
             binding.mapButtons.setMarginsDp(bottom = bottomMargin)
         }
-
-        binding.btnCO.setOnClickListener {
-            mapContainer.evaluateJavascript("document.getElementById('${"btn-co"}').click()") {}
-
-            binding.apply {
-                disableAllButtons(R.color.inactiveGrey)
-                tvCO.setColor(R.color.colorSecondary)
-            }
-        }
-
-        binding.btnNO2.setOnClickListener {
-            mapContainer.evaluateJavascript("document.getElementById('${"btn-co2"}').click()") {}
-
-            binding.apply {
-                disableAllButtons(R.color.inactiveGrey)
-                binding.tvNO2.setColor(R.color.colorSecondary)
-            }
-        }
-
-        binding.btnO3.setOnClickListener {
-            mapContainer.evaluateJavascript("document.getElementById('${"btn-o3"}').click()") {}
-
-            binding.apply {
-                disableAllButtons(R.color.inactiveGrey)
-                tvO3.setColor(R.color.colorSecondary)
-            }
-        }
-
-        binding.btnSO2.setOnClickListener {
-            mapContainer.evaluateJavascript("document.getElementById('${"btn-temp"}').click()") {}
-
-            binding.apply {
-                disableAllButtons(R.color.inactiveGrey)
-                tvSO2.setColor(R.color.colorSecondary)
-            }
-        }
-
-        return binding.root
     }
 
-    private fun setupMapWebClient() {
+    private fun setUpGasButtons() {
+        binding.run {
+            // CO
+            btnCO.setOnClickListener {
+                initializeButton(it as FrameLayout, CO_HTML_ID)
+            }
+
+            // NO2
+            btnNO2.setOnClickListener {
+                initializeButton(it as FrameLayout, NO2_HTML_ID)
+            }
+
+            // O3
+            btnO3.setOnClickListener {
+                initializeButton(it as FrameLayout, O3_HTML_ID)
+            }
+
+            // SO2
+            btnSO2.setOnClickListener {
+                initializeButton(it as FrameLayout, SO2_HTML_ID)
+            }
+        }
+    }
+
+    private fun initializeButton(btnContainer: FrameLayout, htmlID: String) {
+        binding.mapContainer.evaluateJavascript("document.getElementById('${htmlID}').click()") {}
+        disableAllButtons(R.color.inactiveGrey)
+        (btnContainer[0] as TextView).setColor(R.color.colorSecondary)
+    }
+
+    private fun setUpMapWebClient() {
         binding.apply {
-            // Map web client setup
             mapContainer.webViewClient = object : WebViewClient() {
                 // Prevent opening the browser by creating a subclass of WebView
                 // and overriding shouldOverrideUrlLoading
@@ -193,21 +208,14 @@ class MapFragment : Fragment() {
 
     private fun toggleFullscreenIcon() {
         binding.run {
-            if (fullscreenIcon.tag.equals("minimized")) {
+            if (fullscreenIcon.tag.equals(MAP_MINIMIZED)) {
                 fullscreenIcon.setImageResource(R.drawable.ic_close)
-                fullscreenIcon.tag = "maximized"
+                fullscreenIcon.tag = MAP_MAXIMIZED
             } else {
                 fullscreenIcon.setImageResource(R.drawable.ic_full_screen)
-                fullscreenIcon.tag = "minimized"
+                fullscreenIcon.tag = MAP_MINIMIZED
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        // NOTE(abi): this has to be set to null to avoid memory leaks!
-        _binding = null
     }
 
     private fun disableAllButtons(@ColorRes inactiveColor: Int) {
