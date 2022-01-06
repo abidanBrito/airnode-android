@@ -1,13 +1,19 @@
 package com.abidev.airnode.ui.views.auth
 
+import android.graphics.Color
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.Toolbar
 import androidx.core.content.ContextCompat.getDrawable
 import androidx.fragment.app.Fragment
 import com.abidev.airnode.R
 import com.abidev.airnode.core.goTo
+import com.abidev.airnode.core.hideView
+import com.abidev.airnode.core.showView
 import com.abidev.airnode.databinding.FragmentSignInBinding
 import com.abidev.airnode.ui.views.MainActivity
 import com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
@@ -15,7 +21,6 @@ import com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_T
 class SignInFragment : Fragment() {
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
-    private var showPasswordFlag = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,9 +30,10 @@ class SignInFragment : Fragment() {
         // View binding
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
 
-        // Hide bars if necessary
-        if ((activity as MainActivity).supportActionBar!!.isShowing) {
-            (activity as MainActivity).toggleActionBarAndNavBar()
+        // Update bars
+        (activity as MainActivity).run {
+            swapActionBar()
+            toggleBars()
         }
 
         binding.apply {
@@ -47,7 +53,6 @@ class SignInFragment : Fragment() {
                 inputPassword.endIconMode = END_ICON_PASSWORD_TOGGLE
                 inputPassword.endIconDrawable =
                     getDrawable(requireContext(), R.drawable.show_hide_password_icon_selector)
-
             }
         }
 

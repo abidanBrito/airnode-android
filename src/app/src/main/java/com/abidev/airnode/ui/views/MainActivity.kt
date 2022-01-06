@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.abidev.airnode.R
-import com.abidev.airnode.core.OnScrollListenerInterface
-import com.abidev.airnode.core.slideDownAnimation
-import com.abidev.airnode.core.slideUpAnimation
+import com.abidev.airnode.core.*
 import com.abidev.airnode.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
@@ -33,7 +31,7 @@ class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         // Hide go back icon
-        binding.customActionbar.goBackIcon.visibility = View.GONE
+        binding.customActionbar.goBackIcon.hideView()
 
         // Link the Bottom Navigation View to the Navigation Controller
         binding.navView.setupWithNavController(navController)
@@ -42,24 +40,57 @@ class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
         binding.customActionbar.settingsIcon.setOnClickListener {
             navController.navigate(R.id.settingsBottomSheetFragment)
         }
-    }
 
-    // NOTE(abi): I just found this online. It might come in handy.
-//    override fun onSupportNavigateUp(): Boolean = navController.navigateUp()
+        binding.run {
+            customActionbar.goBackIcon.setOnClickListener {
+                onBackPressed()
+            }
+            customActionbarGoBack.goBackIcon.setOnClickListener {
+                onBackPressed()
+            }
+        }
+    }
 
     fun changeAppBarTitle(title: String) {
         binding.customActionbar.toolbarTitle.text = title
     }
 
-    fun toggleActionBarAndNavBar() {
+    fun toggleBars() {
+        toggleActionBar()
+        toggleNavBar()
+    }
+
+    private fun toggleActionBar() {
         if (supportActionBar?.isShowing == true) {
             supportActionBar!!.hide()
-            binding.navView.visibility = View.GONE
             return
         }
 
         supportActionBar!!.show()
-        binding.navView.visibility = View.VISIBLE
+    }
+
+    private fun toggleNavBar() {
+        binding.run {
+            if (navView.visibility == View.VISIBLE) {
+                navView.hideView()
+                return
+            }
+
+            navView.showView()
+        }
+    }
+
+    fun swapActionBar() {
+        binding.run {
+            if (supportActionBar?.isShowing == true) {
+                customActionbar.root.hideView()
+                customActionbarGoBack.root.showView()
+            }
+            else {
+                customActionbar.root.showView()
+                customActionbarGoBack.root.hideView()
+            }
+        }
     }
 
     override fun hideBars(duration: Int, heightActionBar: Float, heightNavBar: Float) {
@@ -80,8 +111,13 @@ class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
         // Note(abi): this next line is here for debugging purposes
         //binding.customToolbarTitle.text = navController.currentDestination?.label
         if (navController.currentDestination?.id == R.id.signInFragment) {
-            toggleActionBarAndNavBar()
+            swapActionBar()
+            toggleBars()
         }
         super.onBackPressed()
     }
+
+    // NOTE(abi): I just found this online. It might come in handy.
+//    override fun onSupportNavigateUp(): Boolean = navController.navigateUp()
+
 }

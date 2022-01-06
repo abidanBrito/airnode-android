@@ -61,9 +61,9 @@ class MapFragment : Fragment() {
     private fun setUpReloadButton() {
         binding.apply {
             btnReloadMap.setOnClickListener {
-                btnReloadMap.visibility = View.GONE
-                mapContainer.visibility = View.GONE
-                mapProgressBar.visibility = View.VISIBLE
+                btnReloadMap.hideView()
+                mapContainer.hideView()
+                mapProgressBar.showView()
 
                 failedLoadingMap = false
 
@@ -109,7 +109,7 @@ class MapFragment : Fragment() {
             }
 
             // Hide ActionBar and NavBar
-            (activity as? MainActivity)?.toggleActionBarAndNavBar()
+            (activity as? MainActivity)?.toggleBars()
 
             // Reset margins
             it.setMarginsDp(top = topMargin)
@@ -163,7 +163,7 @@ class MapFragment : Fragment() {
                 // Hide / show the proper views when done loading
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    mapProgressBar.visibility = View.GONE
+                    mapProgressBar.hideView()
                     setMapGUI()
                 }
 
@@ -182,7 +182,7 @@ class MapFragment : Fragment() {
                     // our custom 404 page.
                     lifecycleScope.launch {
                         delay(20L)
-                        mapContainer.visibility = View.VISIBLE
+                        mapContainer.showView()
                     }
                 }
             }
@@ -196,13 +196,14 @@ class MapFragment : Fragment() {
     private fun setMapGUI() {
         binding.apply {
             if (!failedLoadingMap) {
-                mapContainer.visibility = View.VISIBLE
-                mapFullscreen.visibility = View.VISIBLE
-                mapLegend.visibility = View.VISIBLE
-                mapButtons.visibility = View.VISIBLE
-            } else {
-                btnReloadMap.visibility = View.VISIBLE
+                mapContainer.showView()
+                mapFullscreen.showView()
+                mapLegend.showView()
+                mapButtons.showView()
+                return
             }
+
+            btnReloadMap.showView()
         }
     }
 

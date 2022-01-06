@@ -16,6 +16,7 @@
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_menu.xml" value="0.121875" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_show_password.xml" value="0.25052083333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_user.xml" value="0.25052083333333336" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/ic_wave.xml" value="0.25052083333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/logotype_dropshadow.xml" value="0.26614583333333336" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_border.xml" value="0.24947916666666667" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/drawable/round_bottom_navigation_view.xml" value="0.26614583333333336" />
@@ -34,13 +35,14 @@
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/activity_main2.xml" value="0.24635416666666668" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/appbar.xml" value="0.2777777777777778" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/appbar_goback.xml" value="0.234375" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/custom_toast.xml" value="0.8" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_history.xml" value="0.25" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_map.xml" value="0.536" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_recover_password.xml" value="0.23333333333333334" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_settings_bottom_sheet.xml" value="0.1" />
-        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_sign_in.xml" value="0.25274725274725274" />
+        <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_sign_in.xml" value="0.264" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_sign_up.xml" value="0.23333333333333334" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_signin.xml" value="0.264" />
         <entry key="..\:/dev/airnode/airnode-android/src/app/src/main/res/layout/fragment_signup.xml" value="0.23333333333333334" />

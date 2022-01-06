@@ -27,6 +27,11 @@
             android:id="@+id/custom_actionbar"
             layout="@layout/appbar" />
 
+        <include
+            android:id="@+id/custom_actionbar_go_back"
+            layout="@layout/appbar_go_back"
+            android:visibility="gone"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
