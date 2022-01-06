@@ -9,22 +9,65 @@
         android:id="@+id/mapFragment"
         android:name="com.abidev.airnode.ui.views.map.MapFragment"
         android:label="@string/title_map"
-        tools:layout="@layout/fragment_map"/>
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_mapFragment_to_settingsBottomSheetFragment"
+            app:destination="@id/settingsBottomSheetFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.abidev.airnode.ui.views.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard"/>
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_settingsBottomSheetFragment"
+            app:destination="@id/settingsBottomSheetFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.abidev.airnode.ui.views.history.HistoryFragment"
         android:label="@string/title_history"
-        tools:layout="@layout/fragment_history"/>
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_settingsBottomSheetFragment"
+            app:destination="@id/settingsBottomSheetFragment" />
+    </fragment>
+
     <dialog
         android:id="@+id/settingsBottomSheetFragment"
         android:name="com.abidev.airnode.ui.views.settings.SettingsBottomSheetFragment"
-        android:label="SettingsBottomSheetFragment" />
+        android:label="SettingsBottomSheetFragment"
+        tools:layout="@layout/fragment_settings_bottom_sheet">
+        <action
+            android:id="@+id/action_settingsBottomSheetFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.abidev.airnode.ui.views.auth.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_recoverPasswordFragment"
+            app:destination="@id/recoverPasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.abidev.airnode.ui.views.auth.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up" />
+
+    <fragment
+        android:id="@+id/recoverPasswordFragment"
+        android:name="com.abidev.airnode.ui.views.auth.RecoverPasswordFragment"
+        android:label="fragment_recover_password"
+        tools:layout="@layout/fragment_recover_password" />
 
 </navigation>

@@ -9,11 +9,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.marginBottom
 import androidx.core.view.marginLeft
 import androidx.core.view.marginRight
 import androidx.core.view.marginTop
 import com.abidev.airnode.R
+import com.google.android.material.textfield.TextInputLayout
 
 fun Context.newToast(msg: String, _duration: Int) {
     // Get Activity

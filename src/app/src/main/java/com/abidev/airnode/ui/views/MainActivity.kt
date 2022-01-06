@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.abidev.airnode.R
+import com.abidev.airnode.core.OnScrollListenerInterface
 import com.abidev.airnode.core.slideDownAnimation
 import com.abidev.airnode.core.slideUpAnimation
 import com.abidev.airnode.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), OnScrollListenerMain {
+class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
     private lateinit var binding: ActivityMainBinding
 
     // Lazy NavController reference
@@ -61,7 +62,6 @@ class MainActivity : AppCompatActivity(), OnScrollListenerMain {
         binding.navView.visibility = View.VISIBLE
     }
 
-    // OnScrollListenerMain Interface methods implementation
     override fun hideBars(duration: Int, heightActionBar: Float, heightNavBar: Float) {
         binding.run {
             customActionbar.appbar.slideUpAnimation(duration, heightActionBar)
@@ -75,9 +75,13 @@ class MainActivity : AppCompatActivity(), OnScrollListenerMain {
             navView.slideUpAnimation(duration, defaultHeight)
         }
     }
-}
 
-interface OnScrollListenerMain {
-    fun hideBars(duration: Int, heightActionBar: Float, heightNavBar: Float)
-    fun showBars(duration: Int, defaultHeight: Float)
+    override fun onBackPressed() {
+        // Note(abi): this next line is here for debugging purposes
+        //binding.customToolbarTitle.text = navController.currentDestination?.label
+        if (navController.currentDestination?.id == R.id.signInFragment) {
+            toggleActionBarAndNavBar()
+        }
+        super.onBackPressed()
+    }
 }

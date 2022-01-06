@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.auth.SignInFragment">
+
+    <ImageView
+        android:id="@+id/ivLogotype"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_logotype"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputEmail"
+        style="@style/ShortTextInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Correo"
+        android:paddingTop="0dp"
+        android:textColorHint="@color/grayDivider"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="50dp"
+        app:boxCornerRadiusBottomStart="50dp"
+        app:boxCornerRadiusTopEnd="50dp"
+        app:boxCornerRadiusTopStart="50dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="40"
+        app:endIconDrawable="@drawable/ic_close"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:helperTextTextColor="@color/gasHigh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogotype"
+        app:startIconDrawable="@drawable/ic_user"
+        app:endIconTint="@color/grayDivider"
+        app:startIconTint="@color/grayDivider">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:letterSpacing="0.05"
+            android:maxLength="40"
+            android:maxLines="1"
+            android:paddingStart="35dp"
+            android:textColor="@color/darkGrey"
+            android:textSize="16sp"
+            tools:ignore="RtlSymmetry" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputPassword"
+        style="@style/ShortTextInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Contraseña"
+        android:paddingTop="0dp"
+        app:startIconTint="@color/grayDivider"
+        app:endIconTint="@color/grayDivider"
+        android:textColorHint="@color/grayDivider"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="50dp"
+        app:boxCornerRadiusBottomStart="50dp"
+        app:boxCornerRadiusTopEnd="50dp"
+        app:boxCornerRadiusTopStart="50dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:endIconDrawable="@drawable/ic_show_password"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:helperTextTextColor="@color/gasHigh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+        app:startIconDrawable="@drawable/ic_lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:letterSpacing="0.05"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:paddingStart="35dp"
+            android:textColor="@color/darkGrey"
+            android:textSize="16sp"
+            tools:ignore="RtlSymmetry" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_button"
+        android:letterSpacing="0.1"
+        android:text="Iniciar sesión"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+
+    <TextView
+        android:id="@+id/tvRecoverPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40sp"
+        android:layout_marginEnd="32dp"
+        android:letterSpacing="0.05"
+        android:text="¿Olvidaste tu contraseña?"
+        android:textColor="@color/colorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvSignUpQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.05"
+            android:text="¿Aún no tienes cuenta?"
+            android:textColor="@color/grayDivider"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSignUpLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.05"
+            android:paddingStart="15dp"
+            android:text="Regístrate"
+            android:textColor="@color/colorSecondary"
+            android:textSize="14sp"
+            tools:ignore="RtlSymmetry" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

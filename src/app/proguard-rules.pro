@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# NOTE(abi): this is needed to be able to use fonts from the Android
+# res directory from local HTML files (to be loaded by a WebView).
+-keep class com.abidev.airnode.R$font { *; }

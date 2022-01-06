@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "fantasque-sans-mono";
+    src: url("file:///android_res/font/fantasquesansmono_regular.ttf");
+}
+
+html {
+    font-family: "fantasque-sans-mono";
+}
+
+.msg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 95vh;
+    letter-spacing: 3px;
+}
+
+#illustration {
+    width: 9rem;
+    padding-bottom: 1.2rem;
+}
+
+h1 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+#suggestion {
+    font-size: 0.8rem;
+}

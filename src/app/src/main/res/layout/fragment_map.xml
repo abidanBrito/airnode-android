@@ -6,11 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ui.views.map.MapFragment">
 
+    <ProgressBar
+        android:id="@+id/mapProgressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btnReloadMap"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_button"
+        android:letterSpacing="0.1"
+        android:text="Recargar mapa"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
     <WebView
         android:id="@+id/map_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="-30dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +55,7 @@
         android:backgroundTint="@color/translucentDarkGrey"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -109,6 +140,7 @@
         android:layout_marginTop="85dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/round_floating_button"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -120,8 +152,8 @@
             android:contentDescription="@string/map_fullscreen_icon_description"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_full_screen"
-            app:tint="@color/inactiveGrey"
-            android:tag="minimized"/>
+            android:tag="minimized"
+            app:tint="@color/inactiveGrey" />
 
     </FrameLayout>
 
@@ -134,6 +166,7 @@
         android:backgroundTint="@color/translucentDarkGrey"
         android:orientation="horizontal"
         android:padding="8dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

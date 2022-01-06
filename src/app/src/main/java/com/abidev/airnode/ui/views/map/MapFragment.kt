@@ -1,6 +1,5 @@
 package com.abidev.airnode.ui.views.map
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,20 +9,21 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.ColorRes
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.core.content.ContextCompat.getDrawable
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.abidev.airnode.R
-import com.abidev.airnode.core.dpToPx
-import com.abidev.airnode.core.setColor
-import com.abidev.airnode.core.setMarginsDp
-import com.abidev.airnode.core.updateActionBarTitle
+import com.abidev.airnode.core.*
 import com.abidev.airnode.databinding.FragmentMapBinding
 import com.abidev.airnode.ui.views.MainActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MapFragment : Fragment() {
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
+
+    // Map loading flag
+    private var failedLoadingMap = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,24 +39,36 @@ class MapFragment : Fragment() {
         val mapContainer = binding.mapContainer
         mapContainer.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
 
-        // Prevent opening the browser by create a subclass of WebView
-        // and overriding shouldOverrideUrlLoading
-        mapContainer.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                return false
-            }
-        }
-
         // Make background transparent
         mapContainer.setBackgroundColor(0)
 
-        // Load map view and enable Javascript
+        // Get map webView and enable Javascript
         val webSettings: WebSettings = mapContainer.settings
         true.also { webSettings.javaScriptEnabled = it }
-        mapContainer.loadUrl("https://airnode.web.app/ux/mapa.html")
+
+//        mapContainer.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+
+        // Initialize and load map
+        setupMapWebClient()
+        loadInterpolationMap()
+
+        binding.apply {
+            btnReloadMap.setOnClickListener {
+                btnReloadMap.visibility = View.GONE
+                mapContainer.visibility = View.GONE
+                mapProgressBar.visibility = View.VISIBLE
+
+                failedLoadingMap = false
+
+                // NOTE(abi): this delay is technically not necessary, but it provides
+                // a better UX (ProgressBar doesn't flash) if there's no Internet connection
+                lifecycleScope.launch {
+                    delay(250L)
+                    loadInterpolationMap()
+                }
+            }
+        }
+
 
         binding.mapFullscreen.setOnClickListener {
             // Update icon
@@ -118,6 +130,65 @@ class MapFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun setupMapWebClient() {
+        binding.apply {
+            // Map web client setup
+            mapContainer.webViewClient = object : WebViewClient() {
+                // Prevent opening the browser by creating a subclass of WebView
+                // and overriding shouldOverrideUrlLoading
+                override fun shouldOverrideUrlLoading(
+                    view: WebView?,
+                    request: WebResourceRequest?
+                ): Boolean {
+                    return false
+                }
+
+                // Hide / show the proper views when done loading
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    mapProgressBar.visibility = View.GONE
+                    setMapGUI()
+                }
+
+                // Load custom 404 HTML page on error
+                override fun onReceivedError(
+                    view: WebView,
+                    errorCode: Int,
+                    description: String,
+                    failingUrl: String
+                ) {
+                    failedLoadingMap = true
+                    mapContainer.loadUrl(ERROR_MAP_URL)
+
+                    // NOTE(abi): we need to delay displaying the WebView (just for a fraction
+                    // of a second). Otherwise, you might get a flash of the error before loading
+                    // our custom 404 page.
+                    lifecycleScope.launch {
+                        delay(20L)
+                        mapContainer.visibility = View.VISIBLE
+                    }
+                }
+            }
+        }
+    }
+
+    private fun loadInterpolationMap() {
+        binding.mapContainer.loadUrl(MAP_URL)
+    }
+
+    private fun setMapGUI() {
+        binding.apply {
+            if (!failedLoadingMap) {
+                mapContainer.visibility = View.VISIBLE
+                mapFullscreen.visibility = View.VISIBLE
+                mapLegend.visibility = View.VISIBLE
+                mapButtons.visibility = View.VISIBLE
+            } else {
+                btnReloadMap.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun toggleFullscreenIcon() {

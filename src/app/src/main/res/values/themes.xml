@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
 
         <!-- Status and Navigation bar colors. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimary</item>
         <item name="android:navigationBarColor">@color/black</item>
 
         <!-- Default font family resource. -->
@@ -32,6 +32,12 @@
 
     <style name="RoundModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/round_bottom_sheet_dialog</item>
+    </style>
+
+    <!-- EditText -->
+    <style name="ShortTextInputEditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
     </style>
 
 </resources>
