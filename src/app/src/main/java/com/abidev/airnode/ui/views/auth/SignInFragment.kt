@@ -1,22 +1,17 @@
 package com.abidev.airnode.ui.views.auth
 
-import android.graphics.Color
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toolbar
-import androidx.core.content.ContextCompat.getDrawable
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.abidev.airnode.R
 import com.abidev.airnode.core.goTo
-import com.abidev.airnode.core.hideView
-import com.abidev.airnode.core.showView
+import com.abidev.airnode.core.newToast
 import com.abidev.airnode.databinding.FragmentSignInBinding
 import com.abidev.airnode.ui.views.MainActivity
-import com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
+import com.google.firebase.auth.FirebaseAuth
 
 class SignInFragment : Fragment() {
     private var _binding: FragmentSignInBinding? = null
@@ -30,12 +25,6 @@ class SignInFragment : Fragment() {
         // View binding
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
 
-        // Update bars
-        (activity as MainActivity).run {
-            swapActionBar()
-            toggleBars()
-        }
-
         binding.apply {
             // Sign up link
             tvSignUpLink.setOnClickListener {
@@ -47,16 +36,41 @@ class SignInFragment : Fragment() {
                 goTo(R.id.action_signInFragment_to_recoverPasswordFragment)
             }
 
-            // Toggle show / hide custom password icons
-            inputPassword.setEndIconOnClickListener {
-                inputPassword.clearOnEndIconChangedListeners()
-                inputPassword.endIconMode = END_ICON_PASSWORD_TOGGLE
-                inputPassword.endIconDrawable =
-                    getDrawable(requireContext(), R.drawable.show_hide_password_icon_selector)
-            }
-        }
+            // Login link
+            btnSignIn.setOnClickListener {
+                if (etEmail.text!!.isNotEmpty() && etPassword.text!!.isNotEmpty()) {
+                    FirebaseAuth.getInstance()
+                        .signInWithEmailAndPassword(
+                            etEmail.text.toString(),
+                            etPassword.text.toString()
+                        ).addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                goTo(R.id.action_signInFragment_to_mapFragment)
 
-        return binding.root
+                                // Update GUI
+                                (activity as MainActivity).run {
+                                    swapActionBar()
+                                    toggleBars()
+                                }
+                            } else {
+                                requireActivity().newToast(
+                                    "Error iniciando sesión.",
+                                    Toast.LENGTH_SHORT,
+                                    280
+                                )
+                            }
+                        }
+                } else {
+                    requireActivity().newToast(
+                        "Rellene todos los campos.",
+                        Toast.LENGTH_SHORT,
+                        280
+                    )
+                }
+            }
+
+            return binding.root
+        }
     }
 
     override fun onDestroyView() {

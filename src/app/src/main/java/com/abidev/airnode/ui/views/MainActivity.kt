@@ -12,6 +12,8 @@ import com.abidev.airnode.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
     private lateinit var binding: ActivityMainBinding
 
+    var loginStatus = false
+
     // Lazy NavController reference
     private val navController by lazy {
         val navHostFragment = supportFragmentManager
@@ -30,24 +32,29 @@ class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
         setSupportActionBar(binding.customActionbar.toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
-        // Hide go back icon
-        binding.customActionbar.goBackIcon.hideView()
-
-        // Link the Bottom Navigation View to the Navigation Controller
-        binding.navView.setupWithNavController(navController)
-
-        // Settings icon listener
-        binding.customActionbar.settingsIcon.setOnClickListener {
-            navController.navigate(R.id.settingsBottomSheetFragment)
-        }
-
         binding.run {
+            // Hide go back icon
+            customActionbar.goBackIcon.hideView()
+
+            // Link the Bottom Navigation View to the Navigation Controller
+            navView.setupWithNavController(navController)
+
+            // Settings icon listener
+            customActionbar.settingsIcon.setOnClickListener {
+                navController.navigate(R.id.settingsBottomSheetFragment)
+            }
+
+            // ActionBar listeners
             customActionbar.goBackIcon.setOnClickListener {
                 onBackPressed()
             }
             customActionbarGoBack.goBackIcon.setOnClickListener {
                 onBackPressed()
             }
+        }
+
+        if (intent.extras?.get("loginState") as Boolean) {
+            loginStatus = true
         }
     }
 
@@ -85,8 +92,7 @@ class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
             if (supportActionBar?.isShowing == true) {
                 customActionbar.root.hideView()
                 customActionbarGoBack.root.showView()
-            }
-            else {
+            } else {
                 customActionbar.root.showView()
                 customActionbarGoBack.root.hideView()
             }
@@ -114,10 +120,10 @@ class MainActivity : AppCompatActivity(), OnScrollListenerInterface {
             swapActionBar()
             toggleBars()
         }
+
         super.onBackPressed()
     }
 
     // NOTE(abi): I just found this online. It might come in handy.
 //    override fun onSupportNavigateUp(): Boolean = navController.navigateUp()
-
 }

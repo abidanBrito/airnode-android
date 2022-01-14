@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="70dp"
             android:layout_marginEnd="32dp"
             android:hint="Correo"
             android:paddingTop="0dp"
@@ -98,7 +98,7 @@
             app:boxCornerRadiusTopStart="50dp"
             app:counterEnabled="true"
             app:counterMaxLength="20"
-            app:endIconDrawable="@drawable/ic_show_password"
+            app:endIconDrawable="@drawable/show_hide_password_icon_selector"
             app:endIconMode="password_toggle"
             app:endIconTint="@color/grayDivider"
             app:errorEnabled="true"
@@ -124,7 +124,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSignIn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -154,8 +154,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-
+            app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -23,3 +23,7 @@
 # NOTE(abi): this is needed to be able to use fonts from the Android
 # res directory from local HTML files (to be loaded by a WebView).
 -keep class com.abidev.airnode.R$font { *; }
+
+# Firebase Authentication flags
+#-keepattributes Signature
+#-keepattributes *Annotation*

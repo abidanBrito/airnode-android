@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "778725268360",
+    "firebase_url": "https://medioambiente-c564b-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "medioambiente-c564b",
+    "storage_bucket": "medioambiente-c564b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778725268360:android:70bbc8d2ad84e346d5783d",
+        "android_client_info": {
+          "package_name": "com.abidev.airnode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778725268360-t8asugpcs2raj8b4jau9nt2fuc5j4t0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abidev.airnode",
+            "certificate_hash": "b08a09a194464fe3e08214fdd91a267a58b29143"
+          }
+        },
+        {
+          "client_id": "778725268360-dhee8g97n0isa4pkupasfpnht1sctu35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh5Fku7rF3IZ6aMtUSqLCu1L3GVAuWGVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778725268360-dhee8g97n0isa4pkupasfpnht1sctu35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

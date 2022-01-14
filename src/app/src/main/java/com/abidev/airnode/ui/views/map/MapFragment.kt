@@ -54,6 +54,9 @@ class MapFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
 
+        // Destroy and set to null (for memory release) the map WebView
+        binding.root.findViewById<WebView>(R.id.map_container).destroy()
+
         // NOTE(abi): this has to be set to null to avoid memory leaks!
         _binding = null
     }
@@ -163,7 +166,15 @@ class MapFragment : Fragment() {
                 // Hide / show the proper views when done loading
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
+
                     mapProgressBar.hideView()
+
+                    // Hide web GUI controls
+                    mapContainer.apply {
+                        hideHTMLElement("botones")
+                        hideHTMLElement("leyenda")
+                    }
+
                     setMapGUI()
                 }
 
@@ -193,6 +204,13 @@ class MapFragment : Fragment() {
         binding.mapContainer.loadUrl(MAP_URL)
     }
 
+    private fun WebView.hideHTMLElement(htmlID: String) {
+        evaluateJavascript(
+            "document.getElementById('${htmlID}')" +
+                    ".style.display = 'none'"
+        ) {}
+    }
+
     private fun setMapGUI() {
         binding.apply {
             if (!failedLoadingMap) {
@@ -209,12 +227,13 @@ class MapFragment : Fragment() {
 
     private fun toggleFullscreenIcon() {
         binding.run {
-            if (fullscreenIcon.tag.equals(MAP_MINIMIZED)) {
+            if (mapFullscreen.tag.equals(MapState.MINIMIZED.name)) {
                 fullscreenIcon.setImageResource(R.drawable.ic_close)
-                fullscreenIcon.tag = MAP_MAXIMIZED
-            } else {
+                mapFullscreen.tag = MapState.MAXIMIZED
+            }
+            else {
                 fullscreenIcon.setImageResource(R.drawable.ic_full_screen)
-                fullscreenIcon.tag = MAP_MINIMIZED
+                mapFullscreen.tag = MapState.MINIMIZED.name
             }
         }
     }

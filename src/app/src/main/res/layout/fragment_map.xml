@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnReloadMap"
@@ -140,6 +140,7 @@
         android:layout_marginTop="85dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/round_floating_button"
+        android:tag="MINIMIZED"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -152,7 +153,6 @@
             android:contentDescription="@string/map_fullscreen_icon_description"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_full_screen"
-            android:tag="minimized"
             app:tint="@color/inactiveGrey" />
 
     </FrameLayout>

@@ -20,7 +20,7 @@ import androidx.core.view.marginTop
 import com.abidev.airnode.R
 import com.google.android.material.textfield.TextInputLayout
 
-fun Context.newToast(msg: String, _duration: Int) {
+fun Context.newToast(msg: String, _duration: Int, yOffset: Int) {
     // Get Activity
     val activity: Activity? = this as? Activity
 
@@ -37,7 +37,7 @@ fun Context.newToast(msg: String, _duration: Int) {
     Toast(activity).apply {
         view = layout
         duration = _duration
-        setGravity(Gravity.BOTTOM, 0, 240)
+        setGravity(Gravity.BOTTOM, 0, yOffset)
         show()
     }
 }

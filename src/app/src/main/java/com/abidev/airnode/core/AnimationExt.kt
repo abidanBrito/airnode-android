@@ -2,7 +2,7 @@ package com.abidev.airnode.core
 
 import android.view.View
 
-fun View.slideUpAnimation(duration: Int, hideOnEnd: Boolean) {
+fun View.slideUpAnimation(duration: Int) {
     val v: View = this
     v.animate()
         .translationY(v.height.toFloat())
@@ -18,7 +18,7 @@ fun View.slideUpAnimation(duration: Int, height: Float) {
         .duration = duration.toLong()
 }
 
-fun View.slideDownAnimation(duration: Int, hideOnEnd: Boolean) {
+fun View.slideDownAnimation(duration: Int) {
     val v: View = this
     v.animate()
         .translationY(v.height.toFloat())

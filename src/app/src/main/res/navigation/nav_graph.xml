@@ -56,13 +56,28 @@
         <action
             android:id="@+id/action_signInFragment_to_recoverPasswordFragment"
             app:destination="@id/recoverPasswordFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_mapFragment"
+            app:destination="@id/mapFragment"
+            app:popUpTo="@+id/nav_graph" />
     </fragment>
 
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.abidev.airnode.ui.views.auth.SignUpFragment"
         android:label="SignUpFragment"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signUpFragment_to_mapFragment"
+            app:destination="@id/mapFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/recoverPasswordFragment"
