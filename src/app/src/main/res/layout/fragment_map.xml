@@ -6,10 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.views.map.MapFragment">
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/mapProgressBar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorSize="50dp"
+        app:trackCornerRadius="5dp"
+        app:trackThickness="5dp"
+        android:indeterminate="true"
+        app:indicatorColor="@color/colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
